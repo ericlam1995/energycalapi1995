@@ -12,28 +12,29 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
     mysqli_stmt_bind_param($stmt, "is", $id, $prop_id);
     if (mysqli_stmt_execute($stmt)) {
         $row = array();
-        mysqli_stmt_bind_result(
-            $stmt,
-            $wateruseid,
-            $kitchen_tap,
-            $kitchen_tap_points,
-            $kitchen_tap_img,
-            $basin_tap,
-            $basin_tap_points,
-            $basin_tap_img,
-            $shower,
-            $shower_points,
-            $shower_img,
-            $rates_inspect,
-            $worst_wc,
-            $worst_wc_points,
-            $doc_by_inspect,
-            $total_points,
-            $asstcomment,
-            $prop_id,
-            $userid
-        );
+
         if (mysqli_stmt_store_result($stmt)) {
+            mysqli_stmt_bind_result(
+                $stmt,
+                $wateruseid,
+                $kitchen_tap,
+                $kitchen_tap_points,
+                $kitchen_tap_img,
+                $basin_tap,
+                $basin_tap_points,
+                $basin_tap_img,
+                $shower,
+                $shower_points,
+                $shower_img,
+                $rates_inspect,
+                $worst_wc,
+                $worst_wc_points,
+                $doc_by_inspect,
+                $total_points,
+                $asstcomment,
+                $prop_id,
+                $userid
+            );
             $count = mysqli_stmt_num_rows($stmt);
             if ($count > 0) {
                 while (mysqli_stmt_fetch($stmt)) {

@@ -19,20 +19,21 @@ if (isset($_POST['id'])) {
         //$res = mysqli_stmt_get_result($stmt);
         $propertyarray = array();
 
-        mysqli_stmt_bind_result(
-            $stmt,
-            $prop_id,
-            $dwell_type,
-            $dwell_size,
-            $room_no,
-            $climate_location,
-            $legal_desc,
-            $cert_title,
-            $address,
-            $asstcomment,
-            $userid
-        );
+
         if (mysqli_stmt_store_result($stmt)) {
+            mysqli_stmt_bind_result(
+                $stmt,
+                $prop_id,
+                $dwell_type,
+                $dwell_size,
+                $room_no,
+                $climate_location,
+                $legal_desc,
+                $cert_title,
+                $address,
+                $asstcomment,
+                $userid
+            );
             $count = mysqli_stmt_num_rows($stmt);
             if ($count > 0) {
 

@@ -12,20 +12,21 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
     mysqli_stmt_bind_param($stmt, "is", $id, $prop_id);
     if (mysqli_stmt_execute($stmt)) {
 
-        mysqli_stmt_bind_result(
-            $stmt,
-            $prop_id,
-            $dwell_type,
-            $dwell_size,
-            $room_no,
-            $climate_location,
-            $legal_desc,
-            $cert_title,
-            $address,
-            $asstcomment,
-            $userid
-        );
+
         if (mysqli_stmt_store_result($stmt)) {
+            mysqli_stmt_bind_result(
+                $stmt,
+                $prop_id,
+                $dwell_type,
+                $dwell_size,
+                $room_no,
+                $climate_location,
+                $legal_desc,
+                $cert_title,
+                $address,
+                $asstcomment,
+                $userid
+            );
             $count = mysqli_stmt_num_rows($stmt);
             if ($count > 0) {
                 while (mysqli_stmt_fetch($stmt)) {

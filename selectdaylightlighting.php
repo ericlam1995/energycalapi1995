@@ -11,31 +11,32 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, "is", $id, $prop_id);
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result(
-            $stmt,
-            $daylightid,
-            $lux_meter,
-            $no_led,
-            $no_led_img,
-            $no_fluo,
-            $no_fluo_img,
-            $no_halog,
-            $no_halog_img,
-            $total_in_watt,
-            $total_in_watt_img,
-            $total_in_light,
-            $total_out_watt,
-            $total_out_watt_img,
-            $watt_sensor,
-            $watt_sensor_img,
-            $total_out_light,
-            $light_inspect,
-            $light_points,
-            $asstcomment,
-            $prop_id,
-            $userid
-        );
+
         if (mysqli_stmt_store_result($stmt)) {
+            mysqli_stmt_bind_result(
+                $stmt,
+                $daylightid,
+                $lux_meter,
+                $no_led,
+                $no_led_img,
+                $no_fluo,
+                $no_fluo_img,
+                $no_halog,
+                $no_halog_img,
+                $total_in_watt,
+                $total_in_watt_img,
+                $total_in_light,
+                $total_out_watt,
+                $total_out_watt_img,
+                $watt_sensor,
+                $watt_sensor_img,
+                $total_out_light,
+                $light_inspect,
+                $light_points,
+                $asstcomment,
+                $prop_id,
+                $userid
+            );
             $count = mysqli_stmt_num_rows($stmt);
             if ($count > 0) {
                 while (mysqli_stmt_fetch($stmt)) {

@@ -12,16 +12,17 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
     mysqli_stmt_bind_param($stmt, "is", $id, $prop_id);
     if (mysqli_stmt_execute($stmt)) {
         //$row = array();
-        mysqli_stmt_bind_result(
-            $stmt,
-            $thermalid,
-            $thermalindex,
-            $thermalpoint,
-            $asstcomment,
-            $prop_id,
-            $userid,
-        );
+
         if (mysqli_stmt_store_result($stmt)) {
+            mysqli_stmt_bind_result(
+                $stmt,
+                $thermalid,
+                $thermalindex,
+                $thermalpoint,
+                $asstcomment,
+                $prop_id,
+                $userid,
+            );
             $count = mysqli_stmt_num_rows($stmt);
             if ($count > 0) {
                 while (mysqli_stmt_fetch($stmt)) {
