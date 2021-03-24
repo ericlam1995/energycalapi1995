@@ -4,15 +4,13 @@ header('Content-Type:Application/json');
 header('Access-Control-Allow-Origin: *');
 include_once("include/db.php");
 global $con;
-if (isset($_POST['id'], $_POST['prop_id'])) {
+if (isset($_POST['user_id'], $_POST['prop_id'])) {
     $id = $_POST['id'];
     $prop_id = $_POST['prop_id'];
     $query = "select * from property where userid=? and prop_id=? limit 1";
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, "is", $id, $prop_id);
     if (mysqli_stmt_execute($stmt)) {
-
-
         if (mysqli_stmt_store_result($stmt)) {
             mysqli_stmt_bind_result(
                 $stmt,
@@ -50,10 +48,10 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
         $json['error'] = true;
         $json['message'] = "Error: " . mysqli_error($con);
     }
-    //$result = mysqli_query($con, $query);
 } else {
     $json['error'] = true;
     $json['message'] = "No permission to access!";
 }
 echo json_encode($json);
 mysqli_close($con);
+?>

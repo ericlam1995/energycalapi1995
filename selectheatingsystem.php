@@ -11,8 +11,6 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, "is", $id, $prop_id);
     if (mysqli_stmt_execute($stmt)) {
-
-
         if (mysqli_stmt_store_result($stmt)) {
             mysqli_stmt_bind_result(
                 $stmt,
@@ -40,7 +38,7 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
                 $back_boosted_image,
                 $heat_points,
                 $asstcomment,
-                $prop_id,
+                $propid,
                 $userid
             );
             $count = mysqli_stmt_num_rows($stmt);
@@ -70,7 +68,7 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
                     $json['back_boosted_image'] = $back_boosted_image;
                     $json['heat_points'] = $heat_points;
                     $json['asstcomment'] = $asstcomment;
-                    $json['prop_id'] = $prop_id;
+                    $json['prop_id'] = $propid;
                     $json['userid'] = $userid;
                 }
             } else {
@@ -89,3 +87,4 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
 }
 echo json_encode($json);
 mysqli_close($con);
+?>

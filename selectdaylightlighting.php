@@ -34,7 +34,7 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
                 $light_inspect,
                 $light_points,
                 $asstcomment,
-                $prop_id,
+                $propid,
                 $userid
             );
             $count = mysqli_stmt_num_rows($stmt);
@@ -59,7 +59,7 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
                     $json['light_inspect'] = $light_inspect;
                     $json['light_points'] = $light_points;
                     $json['asstcomment'] = $asstcomment;
-                    $json['prop_id'] = $prop_id;
+                    $json['prop_id'] = $propid;
                     $json['userid'] = $userid;
                 }
             } else {
@@ -77,3 +77,4 @@ if (isset($_POST['id'], $_POST['prop_id'])) {
 }
 echo json_encode($json);
 mysqli_close($con);
+?>

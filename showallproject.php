@@ -54,3 +54,4 @@ if (mysqli_stmt_execute($stmt)) {
 
 echo json_encode($json);
 mysqli_close($con);
+?>
