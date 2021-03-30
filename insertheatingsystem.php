@@ -47,12 +47,10 @@
         $hyd_image = null;
         if(isset($_FILES['hyd_image'])){
             if(is_uploaded_file($_FILES['hyd_image']['tmp_name'])){
-                $hyd_image = base64_encode(addslashes(file_get_contents($_FILES['hyd_image']['tmp_name'])));
+                $hyd_image = base64_encode(file_get_contents(addslashes($_FILES['hyd_image']['tmp_name'])));
             }
         }
-        else{
-            $hyd_image = null;
-        }
+
         $lpg_gas_perc;
 
         if(empty($_POST['lpg_gas_perc'])){
@@ -141,7 +139,7 @@
         $back_boosted_points = floatval($_POST['back_boosted_points']);
         $back_boosted_image = null;
         if(isset($_FILES['back_boosted_image'])){
-            if(is_uploaded_file($_FILES['back_boosted_image']['name'])){
+            if(is_uploaded_file($_FILES['back_boosted_image']['tmp_name'])){
                 $back_boosted_image = base64_encode(file_get_contents(addslashes($_FILES['back_boosted_image']['tmp_name'])));
             }
         }
