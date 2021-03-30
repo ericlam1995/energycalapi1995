@@ -50,11 +50,11 @@
         $no_halog_img = null;
         if(isset($_FILES['no_halog_img'])){
             if(is_uploaded_file($_FILES['no_halog_img']['tmp_name'])){
-                $total_in_watt_img = base64_encode(file_get_contents(addslashes($_FILES['no_halog_img']['tmp_name'])));
+                $no_halog_img = base64_encode(file_get_contents(addslashes($_FILES['no_halog_img']['tmp_name'])));
             }
         }
         else{
-            $total_in_watt_img = null;
+            $no_halog_img = null;
         }
         $total_in_watt = null;
         if(empty($_POST['total_in_watt']) && !isset($_POST['total_in_watt'])){
