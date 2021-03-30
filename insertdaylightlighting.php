@@ -21,9 +21,6 @@
                 $no_led_img = base64_encode(file_get_contents(addslashes($_FILES['no_led_img']['tmp_name'])));
             }
         }
-        else{
-            $no_led_img = null;
-        }
         
         $no_fluo = null;
         if(empty($_POST['no_fluo']) && !isset($_POST['no_fluo']) ){
@@ -37,9 +34,6 @@
                 $no_fluo_img = base64_encode(file_get_contents(addslashes($_FILES['no_fluo_img']['tmp_name'])));
             }
         }
-        else{
-            $no_fluo_img = null;
-        }
         
 
         $no_halog = null;
@@ -51,12 +45,10 @@
         $no_halog_img = null;
         if(isset($_FILES['no_halog_img'])){
             if(is_uploaded_file($_FILES['no_halog_img']['tmp_name'])){
-                $total_in_watt_img = base64_encode(file_get_contents(addslashes($_FILES['no_halog_img']['tmp_name'])));
+                $no_halog_img = base64_encode(file_get_contents(addslashes($_FILES['no_halog_img']['tmp_name'])));
             }
         }
-        else{
-            $total_in_watt_img = null;
-        }
+
         $total_in_watt = null;
         if(empty($_POST['total_in_watt']) && !isset($_POST['total_in_watt'])){
             $total_in_watt = 0;
@@ -87,9 +79,6 @@
                 $total_out_watt_img = base64_encode(file_get_contents(addslashes($_FILES['total_out_watt_img']['tmp_name'])));
             }
         }
-        else{
-            $total_out_watt_img = null;
-        }
         $watt_sensor = null;
         if(empty($_POST['watt_sensor'])){
             $watt_sensor = 0;
@@ -103,9 +92,7 @@
                 $watt_sensor_img = base64_encode(file_get_contents(addslashes($_FILES['watt_sensor_img']['tmp_name'])));
             }
         }
-        else{
-            $watt_sensor_img = null;
-        }
+        
         $total_out_light = floatval($_POST['total_out_light']);
         $light_inspect = trim($_POST['light_inspect']);
         $light_points = floatval($_POST['light_points']);

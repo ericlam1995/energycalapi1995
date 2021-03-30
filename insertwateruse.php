@@ -18,9 +18,7 @@
                 $kitchen_tap_img = base64_encode(file_get_contents(addslashes($_FILES['kitchen_tap_img']['tmp_name'])));
             }
         }
-        else{
-            $kitchen_tap_img = null;
-        }
+
         
 
         $basin_tap = floatval($_POST['basin_tap']);
@@ -31,9 +29,7 @@
                 $basin_tap_img = base64_encode(file_get_contents(addslashes($_FILES['basin_tap_img']['tmp_name'])));
             }
         }
-        else{
-            $basin_tap_img = null;
-        }
+
         
 
         $shower = floatval($_POST['shower']);
@@ -44,9 +40,7 @@
                 $shower_img = base64_encode(file_get_contents(addslashes($_FILES['shower_img']['tmp_name'])));
             }
         }
-        else{
-            $shower_img = null;
-        }
+
         
         $rates_inspect = trim($_POST['rates_inspect']);
         $worst_wc = trim($_POST['worst_wc']);

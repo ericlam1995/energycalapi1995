@@ -29,9 +29,7 @@
                 $air_image = base64_encode(file_get_contents(addslashes($_FILES['air_image']['tmp_name'])));
             }
         }
-        else{
-            $air_image = null;
-        }
+
         $hyd_perc;
         if(empty($_POST['hyd_perc'])){
             $hyd_perc = 0;
@@ -73,13 +71,10 @@
         $lpg_gas_image = null;
         if(isset($_FILES['lpg_gas_image'])){
             if(is_uploaded_file($_FILES['lpg_gas_image']['tmp_name'])){
-            
                 $lpg_gas_image = base64_encode(file_get_contents(addslashes($_FILES['lpg_gas_image']['tmp_name'])));
             }
         }
-        else{
-            $lpg_gas_image = null;
-        }
+
         $natural_gas_perc;
         if(empty($_POST['natural_gas_perc'])){
             $natural_gas_perc = 0;
@@ -100,9 +95,7 @@
                 $natural_gas_image = base64_encode(file_get_contents(addslashes($_FILES['natural_gas_image']['tmp_name'])));
             }
         }
-        else{
-            $natural_gas_image = null;
-        }
+
         $wood_perc;
         if(empty($_POST['wood_perc'])){
             $wood_perc = 0;
@@ -122,9 +115,7 @@
                 $wood_image = base64_encode(file_get_contents(addslashes($_FILES['wood_image']['tmp_name'])));
             }
         }
-        else{
-            $wood_image = null;
-        }
+
         $ele_h_perc;
         if(empty($_POST['ele_h_perc'])){
             $ele_h_perc = 0;
@@ -144,21 +135,15 @@
                 $ele_h_image = base64_encode(file_get_contents(addslashes($_FILES['ele_h_image']['tmp_name'])));
             }
         }
-        else{
-            $ele_h_image = null;
-        }
-        
 
         $back_boosted = trim($_POST['back_boosted']);
 
         $back_boosted_points = floatval($_POST['back_boosted_points']);
-        $back_boosted_image;
+        $back_boosted_image = null;
         if(isset($_FILES['back_boosted_image'])){
             if(is_uploaded_file($_FILES['back_boosted_image']['name'])){
                 $back_boosted_image = base64_encode(file_get_contents(addslashes($_FILES['back_boosted_image']['tmp_name'])));
             }
-        }else{
-            $back_boosted_image = null;
         }
 
         
