@@ -8,7 +8,7 @@
     if(isset($_POST['wateruseid'],$_POST['kitchen_tap'], $_POST['kitchen_tap_points'],$_POST['basin_tap']
     ,$_POST['basin_tap_points'], $_POST['shower'], $_POST['shower_points']
     ,$_POST['rates_inspect'], $_POST['worst_wc'],$_POST['worst_wc_points'],$_POST['doc_by_inspect']
-    ,$_POST['total_points'],$_POST['asstcomment'], $_POST['prop_id']
+    ,$_POST['total_points'], $_POST['prop_id']
     ,$_POST['userid'])){
         $wateruseid = intval($_POST['wateruseid']);
         $kitchen_tap = floatval($_POST['kitchen_tap']);
@@ -54,7 +54,12 @@
         $worst_wc_points = floatval($_POST['worst_wc_points']);
         $doc_by_inspect = trim($_POST['doc_by_inspect']);
         $total_points = floatval($_POST['total_points']);
-        $asstcomment = $_POST['asstcomment'];
+        $asstcomment = "";
+        if(empty($_POST['asstcomment'])){
+            $asstcomment = "";
+        }else{
+            $asstcomment = $_POST['asstcomment'];
+        }
         $prop_id = trim($_POST['prop_id']);
         $userid = intval($_POST['userid']);
         

@@ -6,7 +6,7 @@
     global $con;
     
     if(isset($_POST['prop_id'], $_POST['dwell_type'],$_POST['dwell_size'],$_POST['room_no']
-    ,$_POST['climate_location'],$_POST['legal_decs'], $_POST['cert_title'],$_POST['address'] ,$_POST['asstcomment'], $_POST['userid'])){
+    ,$_POST['climate_location'],$_POST['legal_decs'], $_POST['cert_title'],$_POST['address'] , $_POST['userid'])){
         $prop_id = trim($_POST['prop_id']);
         $dwell_type = trim($_POST['dwell_type']);
         $dwell_size = trim($_POST['dwell_size']);
@@ -15,7 +15,12 @@
         $legal_decs = trim($_POST['legal_decs']);
         $cert_title = trim($_POST['cert_title']);
         $address = trim($_POST['address']);
-        $asstcomment = $_POST['asstcomment'];
+        $asstcomment = "";
+        if(empty($_POST['asstcomment'])){
+            $asstcomment = "";
+        }else{
+            $asstcomment = $_POST['asstcomment'];
+        }
         $userid = intval($_POST['userid']);
         $arraytest = array($prop_id, $dwell_type, $dwell_size, $room_no, $climate_location,
         $legal_decs, $cert_title, $address, $asstcomment, $userid);

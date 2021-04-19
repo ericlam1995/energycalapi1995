@@ -6,7 +6,7 @@
     global $con;
     if(isset($_POST['prop_id'], $_POST['dwell_type'],$_POST['dwell_size'],$_POST['room_no']
     ,$_POST['climate_location'],$_POST['legal_desc'], $_POST['cert_title'], $_POST['address'], 
-    $_POST['asstcomment'], $_POST['userid'])){
+     $_POST['userid'])){
         
         $prop_id = trim($_POST['prop_id']);
         $dwell_type = trim($_POST['dwell_type']);
@@ -16,7 +16,12 @@
         $legal_desc = trim($_POST['legal_desc']);
         $cert_title = trim($_POST['cert_title']);
         $address = trim($_POST['address']);
-        $asstcomment = $_POST['asstcomment'];
+        $asstcomment = "";
+        if(empty($_POST['asstcomment'])){
+            $asstcomment = "";
+        }else{
+            $asstcomment = $_POST['asstcomment'];
+        }
         $userid = intval($_POST['userid']);
 
         $updatequery = "update property set dwell_type=?, dwell_size=?, 

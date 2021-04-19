@@ -4,11 +4,16 @@
     header('Access-Control-Allow-Origin: *');
     include_once("include/db.php");
     global $con;
-    if(isset($_POST['thermalindex'], $_POST['thermalpoint'],$_POST['asstcomment'],$_POST['prop_id']
+    if(isset($_POST['thermalindex'], $_POST['thermalpoint'], $_POST['prop_id']
     ,$_POST['userid'])){
         $thermalindex = trim($_POST['thermalindex']);
         $thermalpoint = intval($_POST['thermalpoint']);
-        $asstcomment = trim($_POST['asstcomment']);
+        $asstcomment = "";
+        if(empty($_POST['asstcomment'])){
+            $asstcomment = "";
+        }else{
+            $asstcomment = $_POST['asstcomment'];
+        }
         $prop_id = trim($_POST['prop_id']);
         $userid = intval($_POST['userid']);
 

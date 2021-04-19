@@ -7,7 +7,7 @@
 
     if(isset($_POST['heatid'],$_POST['air_perc'], $_POST['hyd_perc'], $_POST['lpg_gas_perc'], $_POST['natural_gas_perc'], 
     $_POST['wood_perc'], $_POST['ele_h_perc'], $_POST['back_boosted'],$_POST['back_boosted_points'],
-    $_POST['heat_points'], $_POST['asstcomment'], $_POST['prop_id']
+    $_POST['heat_points'], $_POST['prop_id']
     ,$_POST['userid'])){
 
 
@@ -168,7 +168,12 @@
         
         $heat_points = intval($_POST['heat_points']);
 
-        $asstcomment = trim($_POST['asstcomment']);
+        $asstcomment = "";
+        if(empty($_POST['asstcomment'])){
+            $asstcomment = "";
+        }else{
+            $asstcomment = $_POST['asstcomment'];
+        }
 
         $prop_id = trim($_POST['prop_id']);
 

@@ -7,7 +7,7 @@
 
     if(isset($_POST['lux_meter'],$_POST['total_in_light'], $_POST['total_out_watt']
     , $_POST['watt_sensor'], $_POST['total_out_light'],$_POST['light_inspect'],
-    $_POST['light_points'], $_POST['asstcomment'],$_POST['prop_id'], $_POST['userid'])){
+    $_POST['light_points'],$_POST['prop_id'], $_POST['userid'])){
         $lux_meter = trim($_POST['lux_meter']);
         $no_led = null;
         if(empty($_POST['no_led']) && !isset($_POST['no_led'])){
@@ -96,7 +96,12 @@
         $total_out_light = floatval($_POST['total_out_light']);
         $light_inspect = trim($_POST['light_inspect']);
         $light_points = floatval($_POST['light_points']);
-        $asstcomment = $_POST['asstcomment'];
+        $asstcomment = "";
+        if(empty($_POST['asstcomment'])){
+            $asstcomment = "";
+        }else{
+            $asstcomment = $_POST['asstcomment'];
+        }
 
         $prop_id = trim($_POST['prop_id']);
 
